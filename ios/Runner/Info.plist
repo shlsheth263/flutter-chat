@@ -25,18 +25,18 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.222444468891-7nftv753rc4f8nfl2eh965dnetm3kck4</string>
+				<string>com.googleusercontent.apps.222444468891-id35a334sjv022dtngb6i0bfae6rm9p1</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need open gallery for you choose a photo</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need open camera for you capture a photo</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need open camera for you capture a photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need open gallery for you choose a photo</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
