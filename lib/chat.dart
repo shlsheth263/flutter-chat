@@ -23,10 +23,11 @@ class Chat extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(
-          'CHAT',
-          style: TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+          'Lets Talk',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
+        backgroundColor: Colors.red,
       ),
       body: new ChatScreen(
         peerId: peerId,
@@ -180,11 +181,11 @@ class ChatScreenState extends State<ChatScreen> {
               ? Container(
                   child: Text(
                     document['content'],
-                    style: TextStyle(color: primaryColor),
+                    style: TextStyle(color: primaryColor,fontSize: 15,fontWeight: FontWeight.w500),
                   ),
                   padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                   width: 200.0,
-                  decoration: BoxDecoration(color: greyColor2, borderRadius: BorderRadius.circular(8.0)),
+                  decoration: BoxDecoration(color: Color(0xFFFFEFEE), borderRadius: BorderRadius.circular(8.0)),
                   margin: EdgeInsets.only(bottom: isLastMessageRight(index) ? 20.0 : 10.0, right: 10.0),
                 )
               : document['type'] == 1
@@ -282,7 +283,7 @@ class ChatScreenState extends State<ChatScreen> {
                     ? Container(
                         child: Text(
                           document['content'],
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w500),
                         ),
                         padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                         width: 200.0,
@@ -547,7 +548,66 @@ class ChatScreenState extends State<ChatScreen> {
 
   Widget buildInput() {
     return Container(
-      child: Row(
+      child:Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              GestureDetector(
+              child :Chip(
+                backgroundColor: Color(0xFFE1E4F3),
+                padding: const EdgeInsets.symmetric(vertical: 1,horizontal: 1),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20),topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),
+                label: Text("Display Schedule",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF3649AE)
+                    ),
+                  )
+                ),
+                              onTap: (){
+                  onSendMessage("Display Schedule", 0);
+                },
+              ),
+                GestureDetector(
+                  child : Chip(
+                backgroundColor: Color(0xFFE1E4F3),
+                padding: const EdgeInsets.symmetric(vertical: 1,horizontal: 1),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20),topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),
+                label: Text("Add Task",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF3649AE)
+                    ),
+                  )
+                ),
+              onTap: (){
+                  onSendMessage("Add Task", 0);
+                },
+                ),
+                      GestureDetector(
+                   child : Chip(
+                backgroundColor: Color(0xFFE1E4F3),
+                padding: const EdgeInsets.symmetric(vertical: 1,horizontal: 1),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20),topLeft: Radius.circular(20),bottomLeft: Radius.circular(20))),
+                label: Text("Create Reminder",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF3649AE)
+                    ),
+                  ),
+                  
+                ),
+                onTap: (){
+                  onSendMessage("Create Reminder", 0);
+                },
+                      )
+            ],
+          ),
+       Row(
         children: <Widget>[
           // Button send image
           Material(
@@ -555,8 +615,8 @@ class ChatScreenState extends State<ChatScreen> {
               margin: new EdgeInsets.symmetric(horizontal: 1.0),
               child: new IconButton(
                 icon: new Icon(Icons.image),
-                onPressed: getImage,
-                color: primaryColor,
+                onPressed: (){},
+                color: Colors.red,
               ),
             ),
             color: Colors.white,
@@ -565,9 +625,9 @@ class ChatScreenState extends State<ChatScreen> {
             child: new Container(
               margin: new EdgeInsets.symmetric(horizontal: 1.0),
               child: new IconButton(
-                icon: new Icon(Icons.face),
-                onPressed: getSticker,
-                color: primaryColor,
+                icon: new Icon(Icons.mic),
+                onPressed: (){},
+                color: Colors.red,
               ),
             ),
             color: Colors.white,
@@ -595,15 +655,19 @@ class ChatScreenState extends State<ChatScreen> {
               child: new IconButton(
                 icon: new Icon(Icons.send),
                 onPressed: () => onSendMessage(textEditingController.text, 0),
-                color: primaryColor,
+                color: Colors.red
               ),
             ),
             color: Colors.white,
           ),
         ],
       ),
+        ],
+      ),
+      
+
       width: double.infinity,
-      height: 50.0,
+      height: 105.0,
       decoration: new BoxDecoration(
           border: new Border(top: new BorderSide(color: greyColor2, width: 0.5)), color: Colors.white),
     );
